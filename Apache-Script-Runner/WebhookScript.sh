@@ -14,6 +14,7 @@ if [ "$data" ]; then
     echo "Contents of body:" >> $log_path
     echo "$data" >> $log_path
 else
+    # Execute this block if $data is empty
     echo "Body not found!" >> $log_path
 fi
 
