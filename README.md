@@ -18,6 +18,15 @@ You can also have your integration take basic identifiers from the event *(e.g. 
 
 See [The Unofficial JSS API Docs: Webhooks API](https://unofficial-jss-api-docs.atlassian.net/wiki/display/JRA/Webhooks+API) for a full reference of all webhook events in both JSON and XML format.
 
+# Email on Mobile Device Enroll and Un-Enroll
+
+This is a webhooks version of a JSS Events API example demonstrated at the [2012 JNUC](https://www.youtube.com/watch?v=QGxMJ1r8_Lg) with the addition of listening for both **MobileDeviceEnrolled** and **MobileDeviceUnEnrolled** events.
+
+When the event is received the integration parses the information for the mobile device and creates the email body in both plain text and HTML formats.
+
+This email notification method can be adapted to any event within webhooks. Additional logic can be added to handle sending the alert to different email recipients depending upon the user assigned to the device. Another enhancement would be to tie into a directory service to look up the user's manager and then set the manager's email as the recipient and other required parties as CCs.
+
+
 # Apache Script Runner
 
 This is a very basic example of executing a shell script on every inbound request using Apache and PHP5.
