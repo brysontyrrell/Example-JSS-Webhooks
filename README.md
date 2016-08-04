@@ -48,3 +48,13 @@ In order to determine if a notification needs to be sent, the integration is goi
 This app is an example workflow automation. The integration notifies a HipChat room on every inbound PatchSoftwareTitleUpdated event. When the inbound patch title is "Firefox" that triggers additional actions to download the latest available version, notify the room when the download is complete, and then create a package ready for deployment to clients.
 
 Consider similar workflows where an inbound event matching your criteria triggers automations with the integration or the integration triggers workflows in other services/apps.
+
+# Slack REST API Change Notification
+
+This tiny Ruby example uses the [Sinatra micro-framework](http://www.sinatrarb.com/) to create a simple webserver to handle WebHook calls from the JSS. In particular, it handles the "RestAPIOperation" event as JSON,  but other handlers can be added easily. 
+
+The JSON sent from the JSS is parsed for info about the API operation, ignoring any GET (read) operations, and then a message is built about the change that was made via the API.  The message is then sent to a slack channel or user via the "slacktee" command, available from [https://github.com/course-hero/slacktee](https://github.com/course-hero/slacktee). The message could also easily be sent via email or logged to a file. 
+
+To use it, just make the script executable, and run it. Then create a webhook in the JSS sending RestAPIOperation events as JSON to http://hostname.company.com:8000/rest_api_operation where hostname.company.com is the host where the script is running. 
+
+See the code comments for more details. Note: To install sinatra, try `sudo gem install sinatra`
