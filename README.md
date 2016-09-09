@@ -58,3 +58,13 @@ The JSON sent from the JSS is parsed for info about the API operation, ignoring 
 To use it, just make the script executable, and run it. Then create a webhook in the JSS sending RestAPIOperation events as JSON to http://hostname.company.com:8000/rest_api_operation where hostname.company.com is the host where the script is running. 
 
 See the code comments for more details. Note: To install sinatra, try `sudo gem install sinatra`
+
+# PHP Webhook Processing
+
+If you want to have one Endpoint for all you Webhooks this may be the right solution for you. You'll just point the JSON-Body to JSSWebHook->processHook($JSON) and all Callbacks you registered before for this Webhook will be executed.
+
+Please study the Code and the Usage.sample Code before you actually use this, it will be better explained inthere ;)
+
+Filtering based on all Data within the Webhook request itself is possible, so you could just listen to any webhook containing your computer "Charly's iMac". The less filters you define the more webhook events you get.
+
+This is free to use, edit, redistribute. But there may be bugs, you got the code, fix them yourself (and please report back).
